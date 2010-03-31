@@ -63,6 +63,9 @@ def exec_on_hosts(commands, hosts, options):
         except:
             error='Error: at least one command failed to execute on %s\n' %host
             sys.stderr.write(error)
+            if options.verbose:
+                print "Debug Info"
+                print str(child)
 
 
 def main():
