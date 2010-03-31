@@ -31,3 +31,9 @@ cat commands.txt | ilom_cmd.py server-lom.lan server1-lom.lan
 ilom_cmd.py -f commands.txt server-lom.lan server1-lom.lan
 ilom_cmd.py server-lom.lan server1-lom.lan < commands.txt
 
+
+Known Limitations:
+Interactive password promt is not supported. If you want to create a new user
+be sure to set the password as you create the user.
+    create /SP/users/me role=Administrator cli_mode=alom password=mypass
+
