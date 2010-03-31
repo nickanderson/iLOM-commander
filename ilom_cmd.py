@@ -2,13 +2,15 @@
 
 import pexpect
 import sys
+from getpass import getpass
 
 def process_args():
     from optparse import OptionParser
-    parser = OptionParser()
+    usage = "usage: %prog [options] <hostname> [<hostname> <hostname>]"
+    parser = OptionParser(usage)
     parser.add_option("-u", "--username", dest="username",
             help="iLOM username (default: %default)")
-    parser.add_option("-p", "--password", dest="password",
+    parser.add_option("-p", "--password", dest="password", action="store_false",
             help="iLOM password (default: %default)")
     parser.add_option("-f", "--file", dest="commands_file",
             help="file with commands to run (default: stdin/pipe)")
@@ -38,6 +40,9 @@ def get_commands(commands_file):
     return commands
  
 def exec_on_hosts(commands, hosts, options):
+
+    if not options.password:
+        options.password = getpass("Password: ")
 
     for host in hosts:
         try:
