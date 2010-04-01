@@ -1,6 +1,6 @@
 iLOM Commander
 
-iLOM Commander is a simple python script to assist in pusing a configuration to
+iLOM Commander is a simple python script to assist in pushing a configuration to
 multiple servers.
 
 
